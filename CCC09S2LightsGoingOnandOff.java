@@ -15,16 +15,16 @@ public class CCC09S2LightsGoingOnandOff {
         }
         Set<String> set = new HashSet<>();
         for (int i = 0; i < R; i++) {
-            int[][] temp = Arrays.copyOf(grid, R);
+            int[][] temp = new int[R][C];
+            for (int j = 0; j < R; j++) for (int k = 0; k < C; k++) temp[j][k] = grid[j][k];
             for (int j = 0; j < i; j++) {
                 for (int k = 0; k < C; k++) {
-                    if (temp[i - j][k] == temp[i - j - 1][k]) temp[i - j - 1][k] = 0;
-                    else temp[i - j - 1][k] = 1;
+                    if (temp[R - i + j][k] == temp[R - i + j - 1][k]) temp[R - i + j][k] = 0;
+                    else temp[R - i + j][k] = 1;
                 }
             }
-            set.add(Arrays.toString(temp[0]));
+            set.add(Arrays.toString(temp[R - 1]));
         }
-
         System.out.println(set.size());
     }
 }

@@ -1,13 +1,15 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CCC20S3EasySearchingforStrings {
-    public static Scanner s = new Scanner(System.in);
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String needle = s.nextLine();
-        String haystack = s.nextLine();
+        String needle = br.readLine();
+        String haystack = br.readLine();
 
         int n = needle.length();
         int[] needleFreq = new int[26];
@@ -44,7 +46,11 @@ public class CCC20S3EasySearchingforStrings {
 
             // If there's a match, add substring to set
             if (match) {
-                uniqueSubstrings.add(haystack.substring(i, i + n));
+                StringBuilder sb = new StringBuilder();
+                for (int j = i; j < i + n; j++) {
+                    sb.append(haystack.charAt(j));
+                }
+                uniqueSubstrings.add(sb.toString());
             }
         }
 

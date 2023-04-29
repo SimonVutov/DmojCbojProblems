@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 
 //https://cboj.ca/problem/cbojr1p3
-public class Octomesters {
+public class Octomesters2 {
     public static Scanner s = new Scanner(System.in);
     public static void main(String[] args)
     {
@@ -23,11 +23,13 @@ public class Octomesters {
                 daysDidntStudy = (double)daysDidntStudy + (double)dayspast - (double)todoList;
                 todoList = 0;
             }
-            else todoList = (double)todoList - (double)dayspast;
+            else {
+                todoList = (double)todoList - (double)dayspast;
+            }
             todoList = (double)todoList + (double)b;
             lasttest = (double)c[i];
         }
 
-        System.out.println(Math.max(0, (int)Math.round(c.length * b - c[c.length - 1] + daysDidntStudy + 1)));
+        System.out.println((int)Math.round(c.length * b - c[c.length - 1] + daysDidntStudy + 1));
     }
 }
