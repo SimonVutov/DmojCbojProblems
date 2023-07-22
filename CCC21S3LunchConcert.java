@@ -17,10 +17,10 @@ public class CCC21S3LunchConcert {
 
         long minWalkTime = Long.MAX_VALUE;
         long position = 500000000;
-        long jumpDistance = 500000000;
+        long jumpDistance = 250000000;
         int counter = 0;
 
-        while (counter < 100) {
+        while (counter < 1000) {
             counter++;
             long maxTimeRight = 0;
             long maxTimeLeft = 0;
